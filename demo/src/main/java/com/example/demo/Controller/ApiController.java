@@ -70,4 +70,9 @@ public class ApiController {
 
         return steamService.jogosRecemJogados(chaveApi,nomeUsuario);
     }
+
+    @GetMapping("quantidade-contas-adicionadas/{nomeUsuario}")
+    public int qtdContasAdicionadas(String chaveApi, String nomeUsuario) throws JsonMappingException, JsonProcessingException{
+        return steamService.qtdContasAdicionadas(chaveApi, nomeUsuario);
+    }
 }

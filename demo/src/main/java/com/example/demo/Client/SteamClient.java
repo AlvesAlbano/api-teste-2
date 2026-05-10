@@ -71,10 +71,9 @@ public class SteamClient {
 
         JsonNode root = objectMapper.readTree(json);
 
-        JsonNode friendslistNode = root.path("friendslist");
-        JsonNode friendsNode = friendslistNode.path("friends");
+        JsonNode contasAdicionadas = root.path("friendslist").path("friends");
 
-        return friendsNode;
+        return contasAdicionadas;
     }
 
     public JsonNode getListaDesejo(String steamId) throws JsonMappingException, JsonProcessingException {
@@ -122,5 +121,9 @@ public class SteamClient {
             }
         }
         return jogosRecemJogados;
+    }
+
+    public int qtdContasAdicionadas(String chaveApi, String steamId) throws JsonMappingException, JsonProcessingException {
+        return getContasAdicionadas(chaveApi,steamId).size();
     }
 }

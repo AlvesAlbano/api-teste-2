@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
+
+
 @Component
 public class SteamService {
 
@@ -33,8 +35,8 @@ public class SteamService {
     }
 
     public JsonNode getContasAdicionadas(String chaveApi, String nomeUsuario) throws JsonMappingException, JsonProcessingException {
-        // final String STEAM_ID = steamClient.getSteamID(chaveApi, nomeUsuario);
-        final String STEAM_ID = "76561197960435530";
+        final String STEAM_ID = steamClient.getSteamID(chaveApi, nomeUsuario);
+        // final String STEAM_ID = "76561197960435530";
 
         return steamClient.getContasAdicionadas(chaveApi, STEAM_ID);
     }
@@ -62,5 +64,11 @@ public class SteamService {
         final String STEAM_ID = steamClient.getSteamID(chaveApi, nomeUsuario);
 
         return steamClient.jogosRecemJogados(chaveApi,STEAM_ID);
+    }
+
+    public int qtdContasAdicionadas(String chaveApi, String nomeUsuario) throws JsonMappingException, JsonProcessingException{
+        final String STEAM_ID = steamClient.getSteamID(chaveApi, nomeUsuario);
+
+        return steamClient.qtdContasAdicionadas(chaveApi, STEAM_ID);
     }
 }
